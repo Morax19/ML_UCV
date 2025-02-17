@@ -194,22 +194,22 @@ def play_canvas1():
     if number_1.image_data is not None:
         transform_image_to_mnist(number_1.image_data)
     #Primer exponente
-    if exponente_1.image_data is not None:
-        transform_image_to_mnist(exponente_1.image_data)
+    if exponent_1.image_data is not None:
+        transform_image_to_mnist(exponent_1.image_data)
     
     #Segundo digito
     if number_2.image_data is not None:
         transform_image_to_mnist(number_2.image_data)
     #segundo exponente
-    if exponente_2.image_data is not None:
-        transform_image_to_mnist(exponente_2.image_data)
+    if exponent_2.image_data is not None:
+        transform_image_to_mnist(exponent_2.image_data)
 
     #Tercer digito
-    if number_1.image_data is not None:
-        transform_image_to_mnist(number_1.image_data)
+    if number_3.image_data is not None:
+        transform_image_to_mnist(number_3.image_data)
     #tercer exponente
-    if exponente_1.image_data is not None:
-        transform_image_to_mnist(exponente_1.image_data)
+    if exponent_3.image_data is not None:
+        transform_image_to_mnist(exponent_3.image_data)
 
 
 # Ejecutar la función principal
