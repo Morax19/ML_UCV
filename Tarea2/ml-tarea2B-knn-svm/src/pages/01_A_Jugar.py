@@ -196,6 +196,10 @@ def play_canvas1():
     #Primer exponente
     if exponent_1.image_data is not None:
         transform_image_to_mnist(exponent_1.image_data)
+
+    #Primer operador
+    if operator_1.image_data is not None:
+        transform_image_to_mnist(operator_1.image_data)
     
     #Segundo digito
     if number_2.image_data is not None:
@@ -203,6 +207,10 @@ def play_canvas1():
     #segundo exponente
     if exponent_2.image_data is not None:
         transform_image_to_mnist(exponent_2.image_data)
+
+    #Segundo operador
+    if operator_2.image_data is not None:
+        transform_image_to_mnist(operator_2.image_data)
 
     #Tercer digito
     if number_3.image_data is not None:
