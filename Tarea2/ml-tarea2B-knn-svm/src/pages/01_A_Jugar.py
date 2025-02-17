@@ -64,13 +64,13 @@ def play_canvas1():
             with c2:
                 exponent_1 = st_canvas(
                     fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
-                    stroke_width=8,
+                    stroke_width=4,
                     stroke_color=stroke_color,
                     background_color=bg_color,
                     background_image=None,
                     update_streamlit=realtime_update,
-                    height=70,
-                    width=70,
+                    height=35,
+                    width=35,
                     drawing_mode="freedraw",
                     point_display_radius=0,
                     key="exponent_1",
@@ -78,13 +78,13 @@ def play_canvas1():
 
             number_1 = st_canvas(
                 fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
-                stroke_width=30,
+                stroke_width=15,
                 stroke_color=stroke_color,
                 background_color=bg_color,
                 background_image=None,
                 update_streamlit=realtime_update,
-                height=280,
-                width=280,
+                height=140,
+                width=140,
                 drawing_mode="freedraw",
                 point_display_radius=0,
                 key="number_1",
@@ -96,13 +96,13 @@ def play_canvas1():
                 st.markdown("#")
                 operator_1 = st_canvas(
                     fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
-                    stroke_width=15,
+                    stroke_width=8,
                     stroke_color=stroke_color,
                     background_color=bg_color,
                     background_image=None,
                     update_streamlit=realtime_update,
-                    height=140,
-                    width=140,
+                    height=70,
+                    width=70,
                     drawing_mode="freedraw",
                     point_display_radius=0,
                     key="operator_1",
@@ -114,26 +114,26 @@ def play_canvas1():
             with c2:
                 exponent_2 = st_canvas(
                     fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
-                    stroke_width=8,
+                    stroke_width=4,
                     stroke_color=stroke_color,
                     background_color=bg_color,
                     background_image=None,
                     update_streamlit=realtime_update,
-                    height=70,
-                    width=70,
+                    height=35,
+                    width=35,
                     drawing_mode="freedraw",
                     point_display_radius=0,
                     key="exponent_2",
                 )
             number_2 = st_canvas(
                 fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
-                stroke_width=30,
+                stroke_width=15,
                 stroke_color=stroke_color,
                 background_color=bg_color,
                 background_image=None,
                 update_streamlit=realtime_update,
-                height=280,
-                width=280,
+                height=140,
+                width=140,
                 drawing_mode="freedraw",
                 point_display_radius=0,
                 key="number_2",
@@ -144,13 +144,13 @@ def play_canvas1():
             st.markdown("#")
             operator_2 = st_canvas(
                 fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
-                stroke_width=15,
+                stroke_width=8,
                 stroke_color=stroke_color,
                 background_color=bg_color,
                 background_image=None,
                 update_streamlit=realtime_update,
-                height=140,
-                width=140,
+                height=70,
+                width=70,
                 drawing_mode="freedraw",
                 point_display_radius=0,
                 key="operator_2",
@@ -163,13 +163,13 @@ def play_canvas1():
             with c2:
                 exponent_3 = st_canvas(
                     fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
-                    stroke_width=8,
+                    stroke_width=4,
                     stroke_color=stroke_color,
                     background_color=bg_color,
                     background_image=None,
                     update_streamlit=realtime_update,
-                    height=70,
-                    width=70,
+                    height=35,
+                    width=35,
                     drawing_mode="freedraw",
                     point_display_radius=0,
                     key="exponent_3",
@@ -177,13 +177,13 @@ def play_canvas1():
 
             number_3 = st_canvas(
                 fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
-                stroke_width=30,
+                stroke_width=15,
                 stroke_color=stroke_color,
                 background_color=bg_color,
                 background_image=None,
                 update_streamlit=realtime_update,
-                height=280,
-                width=280,
+                height=140,
+                width=140,
                 drawing_mode="freedraw",
                 point_display_radius=0,
                 key="number_3",
