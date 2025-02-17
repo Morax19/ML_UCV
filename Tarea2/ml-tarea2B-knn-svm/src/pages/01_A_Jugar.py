@@ -189,9 +189,27 @@ def play_canvas1():
                 key="number_3",
             )
     #AÑADIR ACÁ LA LOGICA DE LA PREDICCION
-
+    
+    #Primer digito
     if number_1.image_data is not None:
-        transform_image_to_mnist(number_1.image_data) 
+        transform_image_to_mnist(number_1.image_data)
+    #Primer exponente
+    if exponente_1.image_data is not None:
+        transform_image_to_mnist(exponente_1.image_data)
+    
+    #Segundo digito
+    if number_2.image_data is not None:
+        transform_image_to_mnist(number_2.image_data)
+    #segundo exponente
+    if exponente_2.image_data is not None:
+        transform_image_to_mnist(exponente_2.image_data)
+
+    #Tercer digito
+    if number_1.image_data is not None:
+        transform_image_to_mnist(number_1.image_data)
+    #tercer exponente
+    if exponente_1.image_data is not None:
+        transform_image_to_mnist(exponente_1.image_data)
 
 
 # Ejecutar la función principal
