@@ -14,7 +14,7 @@ def load_models():
 # Preprocesar la imagen para que sea compatible con el modelo MNIST
 def transform_image_to_mnist(image_data):
     # Convertir la imagen en un array de píxeles
-    img = Image.fromarray(image_data,astype(np.uint8))
+    img = Image.fromarray(image_data.astype(np.uint8))
     img = img.convert('L')
     img = img.resize((28, 28), Image.Resampling.LANCZOS)
 
