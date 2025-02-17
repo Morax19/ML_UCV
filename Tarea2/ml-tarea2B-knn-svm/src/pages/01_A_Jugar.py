@@ -38,8 +38,8 @@ def predict_digit(model, image):
 
 def play_canvas1():
     #Cargar los modelos
-    d_model, op_model = load_models()
-    
+    #d_model, op_model = load_models()  DESCOMENTAR ESTO
+
     # Creando variables del sidebar
     stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 3)
     stroke_color = st.sidebar.color_picker("Stroke color hex: ")
@@ -188,6 +188,9 @@ def play_canvas1():
                 point_display_radius=0,
                 key="number_3",
             )
+    #AÑADIR ACÁ LA LOGICA DE LA PREDICCION
+
+    
 
 # Ejecutar la función principal
 def main():
