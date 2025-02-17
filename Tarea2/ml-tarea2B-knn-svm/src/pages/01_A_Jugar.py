@@ -14,11 +14,11 @@ def load_models():
 # Preprocesar la imagen para que sea compatible con el modelo MNIST
 def transform_image_to_mnist(image_data):
     # Convertir la imagen en un array de píxeles
-    img = Image.open(io.BytesIO(image_data))
-    img = img.convert('L')  # Convertir a escala de grises
-    img = img.resize((28, 28), Image.ANTIALIAS)
-    img_array = np.array(img)
-    return img_array
+    img = Image.fromarray(image_data,astype(np.uint8))
+    img = img.convert('L')
+    img = img.resize((28, 28), Image.Resampling.LANCZOS)
+
+    st.image(img, caption="Prueba de imagen")
 
 # Función para predecir el dígito o el operador
 def predict_digit(model, image):
@@ -190,7 +190,9 @@ def play_canvas1():
             )
     #AÑADIR ACÁ LA LOGICA DE LA PREDICCION
 
-    
+    if number_1.image_data is not None:
+        transform_image_to_mnist(number_1.image_data) 
+
 
 # Ejecutar la función principal
 def main():
