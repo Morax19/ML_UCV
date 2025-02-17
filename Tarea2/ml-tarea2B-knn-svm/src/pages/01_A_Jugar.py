@@ -2,7 +2,7 @@ import io
 import joblib
 import numpy as np
 import streamlit as st
-import streamlit_drawable_canvas as st_canvas
+from streamlit_drawable_canvas import st_canvas
 from PIL import Image
 
 # Cargar los modelos previamente entrenados
