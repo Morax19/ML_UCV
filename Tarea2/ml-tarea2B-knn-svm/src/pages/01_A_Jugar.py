@@ -187,10 +187,6 @@ def play_canvas1():
                 key="number_3",
             )
 
-    number, exponent, operator, mnist = st.tabs(
-        ["Número", "Exponente", "Operador", "Mnist"]
-    )
-
 # Función principal para el canvas interactivo
 def play_canvas():
     # Cargar los modelos
