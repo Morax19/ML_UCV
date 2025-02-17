@@ -39,7 +39,7 @@ def predict_digit(model, image):
 # Función principal para el canvas interactivo
 def play_canvas():
     # Cargar los modelos
-    model_number, model_operator = load_models()
+    #model_number, model_operator = load_models()
 
     # Crear variables de la barra lateral
     stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 3)
