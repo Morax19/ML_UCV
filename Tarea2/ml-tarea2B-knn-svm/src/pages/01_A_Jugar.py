@@ -37,6 +37,7 @@ def predict_digit(model, image):
     return predicted_class
 
 def play_canvas1():
+    st.set_page_config(layout = "wide")
     #Cargar los modelos
     #d_model, op_model = load_models()  DESCOMENTAR ESTO
 
