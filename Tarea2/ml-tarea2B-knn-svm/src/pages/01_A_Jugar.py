@@ -96,7 +96,7 @@ def play_canvas1():
                 st.markdown("#")
                 operator_1 = st_canvas(
                     fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
-                    stroke_width=8,
+                    stroke_width=7,
                     stroke_color=stroke_color,
                     background_color=bg_color,
                     background_image=None,
@@ -144,7 +144,7 @@ def play_canvas1():
             st.markdown("#")
             operator_2 = st_canvas(
                 fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
-                stroke_width=8,
+                stroke_width=7,
                 stroke_color=stroke_color,
                 background_color=bg_color,
                 background_image=None,
