@@ -53,7 +53,7 @@ def play_canvas():
     operator_1 = st.empty()
 
     # Definir el lienzo donde los usuarios dibujarán
-    number_1.image_data = st.canva(
+    number_1.image_data = st.canvas(
         width=280,
         height=280,
         stroke_width=stroke_width,
