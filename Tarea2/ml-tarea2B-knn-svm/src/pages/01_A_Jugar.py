@@ -37,7 +37,7 @@ def predict_digit(model, image):
     return predicted_class
 
 def play_canvas1():
-
+    
     # Creando variables del sidebar
     stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 3)
     stroke_color = st.sidebar.color_picker("Stroke color hex: ")
