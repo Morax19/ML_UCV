@@ -18,14 +18,15 @@ def transform_image_to_mnist(image_data):
     img = img.convert('L')  # Convertir a escala de grises
     img = img.resize((28, 28), Image.ANTIALIAS)
     img_array = np.array(img)
-    return img_array, img
+    return img_array
 
 # Función para predecir el dígito o el operador
 def predict_digit(model, image):
     # Preprocesar la imagen
-    image_resized, _ = transform_image_to_mnist(image)
+    r_image = transform_image_to_mnist(image)
     
     # Normalizar la imagen para que coincida con el formato de MNIST
+    image_resized = 
     image_resized = image_resized / 255.0
     image_resized = image_resized.reshape(1, 28, 28, 1)
 
