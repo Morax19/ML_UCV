@@ -26,12 +26,11 @@ def predict_digit(model, image):
     r_image = transform_image_to_mnist(image)
     
     # Normalizar la imagen para que coincida con el formato de MNIST
-    image_resized = 
-    image_resized = image_resized / 255.0
-    image_resized = image_resized.reshape(1, 28, 28, 1)
-
+    r_image = r_image.reshape(r_image.shape[0], 28 * 28)
+    r_image = image_resized / 255.0
+    
     # Hacer la predicción
-    prediction = model.predict(image_resized)
+    prediction = model.predict(r_image)
     
     # Obtener el valor de la predicción
     predicted_class = prediction.argmax()
