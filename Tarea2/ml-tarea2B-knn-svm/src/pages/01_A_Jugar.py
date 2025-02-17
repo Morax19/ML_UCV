@@ -37,6 +37,8 @@ def predict_digit(model, image):
     return predicted_class
 
 def play_canvas1():
+    #Cargar los modelos
+    d_model, op_model = load_models()
     
     # Creando variables del sidebar
     stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 3)
@@ -186,58 +188,6 @@ def play_canvas1():
                 point_display_radius=0,
                 key="number_3",
             )
-
-# Función principal para el canvas interactivo
-def play_canvas():
-    # Cargar los modelos
-    #model_number, model_operator = load_models()
-
-    # Crear variables de la barra lateral
-    stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 3)
-    stroke_color = st.sidebar.color_picker("Stroke color hex: ")
-    bg_color = st.sidebar.color_picker("Background color hex: ", "#eee")
-    realtime_update = st.sidebar.checkbox("Update in realtime", True)
-
-    # Contenedor para los números y operadores
-    number_1 = st.empty()
-    number_2 = st.empty()
-    operator_1 = st.empty()
-
-    # Definir el lienzo donde los usuarios dibujarán
-    number_1.image_data = st.canvas(
-        width=280,
-        height=280,
-        stroke_width=stroke_width,
-        stroke_color=stroke_color,
-        background_color=bg_color,
-        realtime_update=realtime_update
-    )
-
-    # Predicciones y operación
-    with number_1:
-        if number_1.image_data is not None:
-            st.write("Predicción Número 1: ")
-            digit_1 = predict_digit(model_number, number_1.image_data)
-            st.write(f"Número 1 Predicho: {digit_1}")
-        
-        # Aquí puedes repetir el proceso para el número 2 y el operador si lo deseas
-
-    with operator_1:
-        if operator_1.image_data is not None:
-            operator_pred = predict_digit(model_operator, operator_1.image_data)
-            st.write(f"Operador Predicho: {operator_pred}")
-        
-        # Aquí puedes realizar las operaciones entre los números
-        if digit_1 is not None and digit_2 is not None and operator_pred is not None:
-            if operator_pred == ord('+'):  # Representación de '+'
-                result = digit_1 + digit_2
-            elif operator_pred == ord('-'):  # Representación de '-'
-                result = digit_1 - digit_2
-            elif operator_pred == ord('×') or operator_pred == ord('*'):  # Representación de '×'
-                result = digit_1 * digit_2
-            elif operator_pred == ('÷') or operator_pred == ord('/'):  # Representación de '/'
-                result = digit_1 / digit_2 if digit_2 != 0 else "Error"
-            st.write(f"Resultado: {result}")
 
 # Ejecutar la función principal
 def main():
