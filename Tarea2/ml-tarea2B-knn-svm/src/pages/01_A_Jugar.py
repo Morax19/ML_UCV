@@ -41,9 +41,9 @@ def play_canvas1():
     #d_model, op_model = load_models()  DESCOMENTAR ESTO
 
     # Creando variables del sidebar
-    stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 3)
-    stroke_color = st.sidebar.color_picker("Stroke color hex: ")
-    bg_color = st.sidebar.color_picker("Background color hex: ", "#eee")
+    stroke_width = 3
+    stroke_color = "white"
+    bg_color = "black"
     realtime_update = st.sidebar.checkbox("Update in realtime", True)
 
     with st.container():
