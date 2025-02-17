@@ -82,7 +82,7 @@ def play_canvas1():
                 background_color=bg_color,
                 background_image=None,
                 update_streamlit=realtime_update,
-                height=280
+                height=280,
                 width=280,
                 drawing_mode="freedraw",
                 point_display_radius=0,
