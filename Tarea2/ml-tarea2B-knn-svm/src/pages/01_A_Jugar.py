@@ -36,6 +36,161 @@ def predict_digit(model, image):
     predicted_class = prediction.argmax()
     return predicted_class
 
+def play_canvas1():
+
+    # Creando variables del sidebar
+    stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 3)
+    stroke_color = st.sidebar.color_picker("Stroke color hex: ")
+    bg_color = st.sidebar.color_picker("Background color hex: ", "#eee")
+    realtime_update = st.sidebar.checkbox("Update in realtime", True)
+
+    with st.container():
+        (
+            number_one,
+            _,
+            operator_one,
+            number_two,
+            _,
+            operator_two,
+            number_three,
+        ) = st.columns([3, 1, 2, 3, 1, 2, 3])
+
+        with number_one:
+            c1, c2 = st.columns(2)
+            with c1:
+                st.empty()
+            with c2:
+                exponent_1 = st_canvas(
+                    fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
+                    stroke_width=stroke_width,
+                    stroke_color=stroke_color,
+                    background_color=bg_color,
+                    background_image=None,
+                    update_streamlit=realtime_update,
+                    height=50,
+                    width=50,
+                    drawing_mode="freedraw",
+                    point_display_radius=0,
+                    key="exponent_1",
+                )
+
+            number_1 = st_canvas(
+                fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
+                stroke_width=stroke_width,
+                stroke_color=stroke_color,
+                background_color=bg_color,
+                background_image=None,
+                update_streamlit=realtime_update,
+                height=150,
+                width=150,
+                drawing_mode="freedraw",
+                point_display_radius=0,
+                key="number_1",
+            )
+
+        with operator_one:
+            with st.container():
+                st.markdown("#")
+                st.markdown("#")
+                operator_1 = st_canvas(
+                    fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
+                    stroke_width=stroke_width,
+                    stroke_color=stroke_color,
+                    background_color=bg_color,
+                    background_image=None,
+                    update_streamlit=realtime_update,
+                    height=100,
+                    width=100,
+                    drawing_mode="freedraw",
+                    point_display_radius=0,
+                    key="operator_1",
+                )
+        with number_two:
+            c1, c2 = st.columns(2)
+            with c1:
+                st.empty()
+            with c2:
+                exponent_2 = st_canvas(
+                    fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
+                    stroke_width=stroke_width,
+                    stroke_color=stroke_color,
+                    background_color=bg_color,
+                    background_image=None,
+                    update_streamlit=realtime_update,
+                    height=50,
+                    width=50,
+                    drawing_mode="freedraw",
+                    point_display_radius=0,
+                    key="exponent_2",
+                )
+            number_2 = st_canvas(
+                fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
+                stroke_width=stroke_width,
+                stroke_color=stroke_color,
+                background_color=bg_color,
+                background_image=None,
+                update_streamlit=realtime_update,
+                height=150,
+                width=150,
+                drawing_mode="freedraw",
+                point_display_radius=0,
+                key="number_2",
+            )
+
+        with operator_two:
+            st.markdown("#")
+            st.markdown("#")
+            operator_2 = st_canvas(
+                fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
+                stroke_width=stroke_width,
+                stroke_color=stroke_color,
+                background_color=bg_color,
+                background_image=None,
+                update_streamlit=realtime_update,
+                height=100,
+                width=100,
+                drawing_mode="freedraw",
+                point_display_radius=0,
+                key="operator_2",
+            )
+
+        with number_three:
+            c1, c2 = st.columns(2)
+            with c1:
+                st.empty()
+            with c2:
+                exponent_3 = st_canvas(
+                    fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
+                    stroke_width=stroke_width,
+                    stroke_color=stroke_color,
+                    background_color=bg_color,
+                    background_image=None,
+                    update_streamlit=realtime_update,
+                    height=50,
+                    width=50,
+                    drawing_mode="freedraw",
+                    point_display_radius=0,
+                    key="exponent_3",
+                )
+
+            number_3 = st_canvas(
+                fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
+                stroke_width=stroke_width,
+                stroke_color=stroke_color,
+                background_color=bg_color,
+                background_image=None,
+                update_streamlit=realtime_update,
+                height=150,
+                width=150,
+                drawing_mode="freedraw",
+                point_display_radius=0,
+                key="number_3",
+            )
+
+    number, exponent, operator, mnist = st.tabs(
+        ["Número", "Exponente", "Operador", "Mnist"]
+    )
+
 # Función principal para el canvas interactivo
 def play_canvas():
     # Cargar los modelos
@@ -90,7 +245,7 @@ def play_canvas():
 
 # Ejecutar la función principal
 def main():
-    play_canvas()
+    play_canvas1()
 
 if __name__ == "__main__":
     main()
