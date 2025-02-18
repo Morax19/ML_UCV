@@ -4,7 +4,7 @@
 
 El objetivo es de la tarea es habilitar la sección `A jugar` para que tengamos un panel como el siguiente:
 
-![Canvas de imagen](/src/img/canvas.png)
+![Canvas de imagen](Tarea2/ml-tarea2B-knn-svm/src/img/canvas.png)
 
 en el cuál podamos ejecutar una operación matemática sencilla y evaluar su resultado.
 
