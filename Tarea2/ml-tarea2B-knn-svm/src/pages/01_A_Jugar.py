@@ -5,46 +5,40 @@ import streamlit as st
 from streamlit_drawable_canvas import st_canvas
 from PIL import Image
 
-# Cargar los modelos previamente entrenados
-def load_models():
-    model_digit = joblib.load("models/output/KNN_Digitos_v2.joblib")
-    model_operator = joblib.load("models/output/SVM_Operadores.joblib")
-    return model_digit, model_operator
+#Ajustes iniciales de la página
+st.set_page_config(layout = "wide")
 
-# Preprocesar la imagen para que sea compatible con el modelo MNIST
-def transform_image_to_mnist(image_data):
+# Preprocesar la imagen para que sea compatible con el modelo
+def to_model(image_data):
     # Convertir la imagen en un array de píxeles
     img = Image.fromarray(image_data.astype(np.uint8))
     img = img.convert('L')
     img = img.resize((28, 28), Image.Resampling.LANCZOS)
+    img = img.reshape(img.shape[0], 28 * 28)
+    img = img / 255.0
+    #st.image(img, caption="Prueba de imagen")
+    return img
 
-    st.image(img, caption="Prueba de imagen")
+def get_number(prediction):
+    return str(prediction[0])
 
-# Función para predecir el dígito o el operador
-def predict_digit(model, image):
-    # Preprocesar la imagen
-    r_image = transform_image_to_mnist(image)
-    
-    # Normalizar la imagen para que coincida con el formato de MNIST
-    r_image = r_image.reshape(r_image.shape[0], 28 * 28)
-    r_image = image_resized / 255.0
-    
-    # Hacer la predicción
-    prediction = model.predict(r_image)
-    
-    # Obtener el valor de la predicción
-    predicted_class = prediction.argmax()
-    return predicted_class
+def get_sign(prediction):
+    val = prediction[0]
+    if val == ord('+'):
+        return '+'
+    elif val == ord('-'):
+        return '-'
+    elif val == ord('*') or val == ord('×'):
+        return '*'
+    elif val == ord('/') or val == ord('÷'):
+        return '/' 
 
-def play_canvas1():
-    st.set_page_config(layout = "wide")
-    #Cargar los modelos
-    #d_model, op_model = load_models()  DESCOMENTAR ESTO
 
+def play_canvas1(d_model, op_model):
     # Creando variables del sidebar
     stroke_color = "white"
     bg_color = "black"
-    realtime_update = st.sidebar.checkbox("Update in realtime", True)
+    realtime_update = True
 
     with st.container():
         (
@@ -188,41 +182,59 @@ def play_canvas1():
                 point_display_radius=0,
                 key="number_3",
             )
+
     #AÑADIR ACÁ LA LOGICA DE LA PREDICCION
-    
-    #Primer digito
-    if number_1.image_data is not None:
-        transform_image_to_mnist(number_1.image_data)
-    #Primer exponente
-    if exponent_1.image_data is not None:
-        transform_image_to_mnist(exponent_1.image_data)
+    canvases_full = (
+        number_1.image_data is not None and exponent_1.image_data is not None and operator_1.image_data is not None and number_2.image_data is not None and exponent_2.image_data is not None and operator_2.image_data is not None and number_3.image_data is not None and exponent_3.image_data is not None
+    )
 
-    #Primer operador
-    if operator_1.image_data is not None:
-        transform_image_to_mnist(operator_1.image_data)
-    
-    #Segundo digito
-    if number_2.image_data is not None:
-        transform_image_to_mnist(number_2.image_data)
-    #segundo exponente
-    if exponent_2.image_data is not None:
-        transform_image_to_mnist(exponent_2.image_data)
+    if st.button("Make Prediction!", disabled = not canvases_full):
+        #Predecir dígitos
+        d1_pred = d_model.predict(to_model(number_1.image_data))
+        d2_pred = d_model.predict(to_model(number_2.image_data))
+        d3_pred = d_model.predict(to_model(number_3.image_data))
 
-    #Segundo operador
-    if operator_2.image_data is not None:
-        transform_image_to_mnist(operator_2.image_data)
+        #Predecir exponentes
+        exp1_pred = d_model.predict(to_model(exponent_1.image_data))
+        exp2_pred = d_model.predict(to_model(exponent_2.image_data))
+        exp3_pred = d_model.predict(to_model(exponent_3.image_data))
 
-    #Tercer digito
-    if number_3.image_data is not None:
-        transform_image_to_mnist(number_3.image_data)
-    #Tercer exponente
-    if exponent_3.image_data is not None:
-        transform_image_to_mnist(exponent_3.image_data)
+        #Predecir operadores
+        op1_pred = op_model.predict(to_model(operator_1.image_data))
+        op2_pred = op_model.predict(to_model(operator_2.image_data))
 
+        #Obtener valores en string
+        #Digitos
+        d1_res = get_number(d1_pred)
+        d2_res = get_number(d2_pred)
+        d3_res = get_number(d3_pred)
+
+        #Exponentes
+        exp1_res = get_number(exp1_pred)
+        exp2_res = get_number(exp2_pred)
+        exp3_res = get_number(exp3_pred)
+
+        #Operadores
+        op1_res = get_sign(op1_pred)
+        op2_res = get_sign(op2_pred)
+
+        final_expression = "("+d1_res+"**"+exp1_res+")"+op1_res+"("+d2_res+"**"+exp2_res+")"+op2_res+"("+d3_res+"**"+exp3_res")"
+        res = eval(final_expression)
+        
+        st.write(f"El resultado de la operación es: {res}")
 
 # Ejecutar la función principal
 def main():
-    play_canvas1()
+    #Cargar los modelos
+    try:
+        d_model = joblib.load("models/output/KNN_Digitos_v2.joblib")
+        op_model = joblib.load("models/output/SVM_Operadores.joblib")
+    except Exception as e:
+        st.error(f"Error cargando los modelos: {e}")
+        st.stop()
+    
+    #Dibujar los canvases
+    play_canvas1(d_model, op_model)
 
 if __name__ == "__main__":
     main()
