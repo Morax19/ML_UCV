@@ -1,3 +1,4 @@
+import torch
 from strokeModel import strokeModelNN
 
 model = strokeModelNN()
