@@ -41,7 +41,7 @@ class strokeModelNN(nn.Module):
     return x
 
   # Vamos a incluir el entrenamiento de la red en la clase
-  def trainModel(self, BATCH_SIZE=32, EPOCHS=100, X=X_train, y=y_train, validate=None):
+  def trainModel(self, X, y, BATCH_SIZE=32, EPOCHS=100, validate=None):
     self.train()
 
     # Parámetros Early Stopping
