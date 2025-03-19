@@ -1,3 +1,6 @@
+import torch
+import torch.nn as nn
+
 class strokeModelNN(nn.Module):
   def __init__(self, input_size=18, nodes_per_layers=[128], dropout_rate=0.2, lr=5e-4, w=1e-5):
     super(strokeModelNN, self).__init__()
