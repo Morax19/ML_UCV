@@ -1,7 +1,0 @@
-[theme]
-    base="dark"
-    primaryColor="blue"
-    font="sans serif"
-
-[server]
-maxUploadSize = 300
